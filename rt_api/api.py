@@ -132,7 +132,7 @@ class Api(object):
             "client_id": constants.CLIENT_ID,
             "client_secret": constants.CLIENT_SECRET,
             "grant_type": "password",
-            "scope": "user.access",
+            "scope": "user",
             "username": username,
             "password": password
         }
