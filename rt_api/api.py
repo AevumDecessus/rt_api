@@ -150,7 +150,7 @@ class Api(object):
             self.__session = requests.Session()
             self.__token = data['access_token']
             self.__session.headers.update({"Authorization": self.__token})
-            self.user_id = int(result.headers.get("X-User-Id"))
+            self.user_id = int(data['user_id'])
             return self.__token
 
     @property
