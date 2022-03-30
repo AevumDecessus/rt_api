@@ -132,7 +132,7 @@ class Api(object):
             "client_id": constants.CLIENT_ID,
             "client_secret": constants.CLIENT_SECRET,
             "grant_type": "password",
-            "scope": "user",
+            "scope": "user public",
             "username": username,
             "password": password
         }
@@ -145,7 +145,7 @@ class Api(object):
         if result.status_code == 401:
             error = data.get("error_message")
             raise AuthenticationError(error)
-        elif result.status_code == 201:
+        elif result.status_code in [200, 201]:
             # Success
             self.__session = requests.Session()
             self.__token = data['access_token']
